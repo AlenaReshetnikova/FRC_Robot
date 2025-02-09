@@ -3,8 +3,8 @@ from wpilib.drive import DifferentialDrive
 
 
 class Robot(TimedRobot):
-    """Robot that moves forward 30 seconds, then stops."""
-    def __init__(self, duration: int = 30, speed: float = 0.5):
+    """Robot that moves forward 15 seconds, then stops."""
+    def __init__(self, duration: int = 15, speed: float = 0.5):
         """Initialize Robot"""
         super().__init__()
         self.left_drive = Talon(0)
@@ -20,7 +20,7 @@ class Robot(TimedRobot):
         self.timer.start()
 
     def autonomousPeriodic(self):
-        """Move forward for 30 seconds using periodic event loop."""
+        """Move forward for 15 seconds using periodic event loop."""
         if self.timer.get() < self.drive_duration:
             self.drive.tankDrive(self.speed, self.speed)
         else:
